@@ -86,6 +86,7 @@ type (
 		MigrateData() error
 
 		DockerHub() DockerHubService
+		CustomTemplate() CustomTemplateService
 		EdgeGroup() EdgeGroupService
 		EdgeJob() EdgeJobService
 		EdgeStack() EdgeStackService
@@ -759,7 +760,7 @@ type (
 	// CustomTemplateService represents a service to manage custom templates
 	CustomTemplateService interface {
 		CustomTemplates() ([]CustomTemplate, error)
-		CustomTemplate() (*CustomTemplate, error)
+		CustomTemplate(ID CustomTemplateID) (*CustomTemplate, error)
 		CreateCustomTemplate(customTemplate *CustomTemplate) error
 		UpdateCustomTemplate(ID CustomTemplateID, customTemplate *CustomTemplate) error
 		DeleteCustomTemplate(ID CustomTemplateID) error
